@@ -99,6 +99,10 @@ typedef volatile RwReg PortReg;
 #define VS1053_SCI_AICTRL1 0x0D
 #define VS1053_SCI_AICTRL2 0x0E
 #define VS1053_SCI_AICTRL3 0x0F
+#define VS1053_SCI_WRAM 0x06
+#define VS1053_SCI_WRAMADDR 0x07
+
+#define VS1053_PARA_PLAYSPEED 0x1E04
 
 #define VS1053_DATABUFFERLEN 32
 
@@ -178,6 +182,8 @@ class Adafruit_VS1053_FilePlayer : public Adafruit_VS1053 {
   boolean paused(void);
   boolean stopped(void);
   void pausePlaying(boolean pause);
+  uint16_t getPlaySpeed();
+  void setPlaySpeed(uint16_t speed);
 
  private:
   void feedBuffer_noLock(void);
